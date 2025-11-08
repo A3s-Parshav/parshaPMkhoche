@@ -1,7 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="pmpml_application"
-        android:name="${applicationName}"
+        android:label="Apli PMPML"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
