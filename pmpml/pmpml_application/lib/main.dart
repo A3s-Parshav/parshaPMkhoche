@@ -1,14 +1,28 @@
 
 
 import 'package:flutter/material.dart';
-import 'bus_page.dart';  
+import 'bus_page.dart';
+import 'choose_color_page.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Color _backgroundColor = const Color(0xFFEAF6FF); // default faint sky blue
+
+  void _changeBackgroundColor(Color color) {
+    setState(() {
+      _backgroundColor = color;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -17,14 +31,17 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.green,
-        scaffoldBackgroundColor: const Color(0xFFEAF6FF), // faint sky blue
-        appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFEAF6FF), // faint sky blue
-          iconTheme: IconThemeData(color: Colors.black),
-          titleTextStyle: TextStyle(color: Colors.black, fontSize: 16),
+        scaffoldBackgroundColor: _backgroundColor,
+        appBarTheme: AppBarTheme(
+          backgroundColor: _backgroundColor,
+          iconTheme: const IconThemeData(color: Colors.black),
+          titleTextStyle: const TextStyle(color: Colors.black, fontSize: 16),
         ),
       ),
-      home: const BusPassPage(),
+      home: BusPassPage(
+        backgroundColor: _backgroundColor,
+        onColorChange: _changeBackgroundColor,
+      ),
     );
   }
 }
