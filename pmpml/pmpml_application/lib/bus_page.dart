@@ -223,7 +223,7 @@ class _BusPassPageState extends State<BusPassPage>
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 15),
+                                fontSize: 18.5),
                           ),
                         ),
 
@@ -242,7 +242,7 @@ class _BusPassPageState extends State<BusPassPage>
                                     value: 'PMC & PCMC',
                                     valueStyle: TextStyle(
                                         fontWeight: FontWeight.w800,
-                                        fontSize: 16,
+                                        fontSize: 20,
                                         color: Colors.black),
                                   ),
                                   const _InfoColumn(
@@ -250,7 +250,7 @@ class _BusPassPageState extends State<BusPassPage>
                                     value: '8034',
                                     valueStyle: TextStyle(
                                         fontWeight: FontWeight.w800,
-                                        fontSize: 18,
+                                        fontSize: 20,
                                         color: Colors.black),
                                   ),
                                   Column(
@@ -268,7 +268,7 @@ class _BusPassPageState extends State<BusPassPage>
                                           Text('₹70.8',
                                               style: TextStyle(
                                                   fontWeight: FontWeight.w800,
-                                                  fontSize: 18,
+                                                  fontSize: 20,
                                                   color: Colors.black)),
                                           Transform.translate(
                                             offset: Offset(-32, 20),
@@ -276,7 +276,7 @@ class _BusPassPageState extends State<BusPassPage>
                                               '3',
                                               style: TextStyle(
                                                 fontWeight: FontWeight.w800,
-                                                fontSize: 18,
+                                                fontSize: 20,
                                                 color: Colors.black,
                                               ),
                                             ),
@@ -397,7 +397,7 @@ class _BusPassPageState extends State<BusPassPage>
                             padding: const EdgeInsets.only(top: 25.0),
                             child: Image.asset(
                               'assets/images/image2.png',
-                              height: 195,
+                              height: 210,
                               fit: BoxFit.contain,
                             ),
                           ),
