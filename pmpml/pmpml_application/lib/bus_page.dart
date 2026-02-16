@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'dart:async';
@@ -10,7 +8,9 @@ class BusPassPage extends StatefulWidget {
   final Color backgroundColor;
   final Function(Color) onColorChange;
 
-  const BusPassPage({Key? key, required this.backgroundColor, required this.onColorChange}) : super(key: key);
+  const BusPassPage(
+      {Key? key, required this.backgroundColor, required this.onColorChange})
+      : super(key: key);
 
   @override
   State<BusPassPage> createState() => _BusPassPageState();
@@ -41,8 +41,9 @@ class _BusPassPageState extends State<BusPassPage>
     )..repeat(reverse: true);
 
     _zoomAnimation = Tween<double>(
-      begin: 0.2,   // start at 0.8× size (you can set this to e.g., 0.5 if you want even smaller)
-      end: 1.0,   // maximum zoom size
+      begin:
+          0.2, // start at 0.8× size (you can set this to e.g., 0.5 if you want even smaller)
+      end: 1.0, // maximum zoom size
     ).animate(
       CurvedAnimation(
         parent: _zoomController,
@@ -56,10 +57,10 @@ class _BusPassPageState extends State<BusPassPage>
     final random = Random();
     int randomMinute = random.nextInt(60);
 
-    _bookingTime = DateTime(
-        _currentDate.year, _currentDate.month, _currentDate.day, 7, randomMinute);
-    _validityTime =
-        DateTime(_currentDate.year, _currentDate.month, _currentDate.day, 23, 59);
+    _bookingTime = DateTime(_currentDate.year, _currentDate.month,
+        _currentDate.day, 7, randomMinute);
+    _validityTime = DateTime(
+        _currentDate.year, _currentDate.month, _currentDate.day, 23, 59);
 
     String dateStr =
         '${_currentDate.year.toString().substring(2)}${_two(_currentDate.month)}${_two(_currentDate.day)}';
@@ -126,7 +127,8 @@ class _BusPassPageState extends State<BusPassPage>
 
     // Fine-tuned values
     const double halfCutSize = 28.0;
-    const double halfCutTopOffset = 117.0; // slightly lower for perfect alignment
+    const double halfCutTopOffset =
+        117.0; // slightly lower for perfect alignment
     const double bookingValidityDown = 28.0;
     const double oneDayPassDown = 18.0;
 
@@ -198,12 +200,6 @@ class _BusPassPageState extends State<BusPassPage>
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(18),
                       border: Border.all(color: Colors.grey.shade300),
-                      boxShadow: [
-                        BoxShadow(
-                            color: Colors.grey.shade200,
-                            blurRadius: 8,
-                            offset: const Offset(0, 3))
-                      ],
                     ),
                     child: Column(
                       children: [
@@ -214,8 +210,8 @@ class _BusPassPageState extends State<BusPassPage>
                           decoration: const BoxDecoration(
                             color: Color(0xFFD32F2F),
                             borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(18),
-                                topRight: Radius.circular(18)),
+                                topLeft: Radius.circular(14),
+                                topRight: Radius.circular(14)),
                           ),
                           child: const Text(
                             'पुणे महानगर परिवहन महामंडळ लि.',
@@ -223,7 +219,7 @@ class _BusPassPageState extends State<BusPassPage>
                             style: TextStyle(
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 18.5),
+                                fontSize: 20.9),
                           ),
                         ),
 
@@ -299,10 +295,9 @@ class _BusPassPageState extends State<BusPassPage>
                                       builder: (context, constraints) {
                                         const dashW = 8.0;
                                         const dashS = 6.0;
-                                        final count =
-                                            (constraints.maxWidth /
-                                                    (dashW + dashS))
-                                                .floor();
+                                        final count = (constraints.maxWidth /
+                                                (dashW + dashS))
+                                            .floor();
                                         return Row(
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
@@ -355,8 +350,7 @@ class _BusPassPageState extends State<BusPassPage>
                                   const dashW = 8.0;
                                   const dashS = 6.0;
                                   final count =
-                                      (constraints.maxWidth /
-                                              (dashW + dashS))
+                                      (constraints.maxWidth / (dashW + dashS))
                                           .floor();
                                   return Row(
                                     mainAxisAlignment:
@@ -410,8 +404,7 @@ class _BusPassPageState extends State<BusPassPage>
                               ? 'Expired'
                               : 'Expires in ${_formatDuration(_remainingTime)}',
                           style: const TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black),
+                              fontWeight: FontWeight.bold, color: Colors.black),
                         ),
                         const SizedBox(height: 12),
                       ],
@@ -420,30 +413,28 @@ class _BusPassPageState extends State<BusPassPage>
 
                   // ONE CLEAN pair of small half-cuts aligned with dashed line
                   Positioned(
-                     left: -halfCutSize / 2,
-                     top: halfCutTopOffset,
-                     child: Container(
-                       width: halfCutSize,
-                       height: halfCutSize,
-                       decoration: BoxDecoration(
-                           color: bg, shape: BoxShape.circle),
-                     ),
-                   ),
-                   Positioned(
-                     right: -halfCutSize / 2,
-                     top: halfCutTopOffset,
-                     child: Container(
-                       width: halfCutSize,
-                       height: halfCutSize,
-                       decoration: BoxDecoration(
-                           color: bg, shape: BoxShape.circle),
-                     ),
-                   ),
+                    left: -halfCutSize / 2,
+                    top: halfCutTopOffset,
+                    child: Container(
+                      width: halfCutSize,
+                      height: halfCutSize,
+                      decoration:
+                          BoxDecoration(color: bg, shape: BoxShape.circle),
+                    ),
+                  ),
+                  Positioned(
+                    right: -halfCutSize / 2,
+                    top: halfCutTopOffset,
+                    child: Container(
+                      width: halfCutSize,
+                      height: halfCutSize,
+                      decoration:
+                          BoxDecoration(color: bg, shape: BoxShape.circle),
+                    ),
+                  ),
                 ],
               ),
-
               const SizedBox(height: 20),
-
               GestureDetector(
                 onTap: () {
                   showDialog(
@@ -457,8 +448,8 @@ class _BusPassPageState extends State<BusPassPage>
                             padding: const EdgeInsets.all(8),
                             decoration: BoxDecoration(
                               color: Colors.white,
-                              border:
-                                  Border.all(color: Colors.green.shade900, width: 2.5),
+                              border: Border.all(
+                                  color: Colors.green.shade900, width: 2.5),
                               borderRadius: BorderRadius.circular(10),
                             ),
                             child: QrImageView(
@@ -525,7 +516,8 @@ class _InfoColumn extends StatelessWidget {
   final String value;
   final TextStyle? valueStyle;
 
-  const _InfoColumn({required this.title, required this.value, this.valueStyle});
+  const _InfoColumn(
+      {required this.title, required this.value, this.valueStyle});
 
   @override
   Widget build(BuildContext context) {
