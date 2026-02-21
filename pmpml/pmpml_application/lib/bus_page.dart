@@ -224,6 +224,9 @@ class _BusPassPageState extends State<BusPassPage>
                       borderRadius: BorderRadius.circular(18),
                       child: Container(
                         width: cardWidth,
+                        constraints: BoxConstraints(
+                          minHeight: cardWidth * 1.4,
+                        ),
                         padding: const EdgeInsets.only(bottom: 20),
                         color: Colors.transparent,
                         child: Container(
@@ -441,10 +444,12 @@ class _BusPassPageState extends State<BusPassPage>
                                 scale: _zoomAnimation,
                                 child: Padding(
                                   padding: const EdgeInsets.only(top: 25.0),
-                                  child: Image.asset(
-                                    'assets/images/image2.png',
-                                    height: size.height * 0.22,
-                                    fit: BoxFit.contain,
+                                  child: Flexible(
+                                    child: Image.asset(
+                                      'assets/images/image2.png',
+                                      height: size.height * 0.22,
+                                      fit: BoxFit.contain,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -504,7 +509,7 @@ class _BusPassPageState extends State<BusPassPage>
                     ),
                   ],
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 16),
                 GestureDetector(
                   onTap: () {
                     showDialog(
